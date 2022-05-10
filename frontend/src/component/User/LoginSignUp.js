@@ -24,14 +24,9 @@ const LoginSignUp = ({ history, location }) => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-
-  const { name, email, password } = user;
-
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState("/Profile.png");
   const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
 
@@ -42,31 +37,19 @@ const LoginSignUp = ({ history, location }) => {
 
   const registerSubmit = (e) => {
     e.preventDefault();
-
-    const myForm = new FormData();
-
-    myForm.set("name", name);
-    myForm.set("email", email);
-    myForm.set("password", password);
-    myForm.set("avatar", avatar);
-    dispatch(register(myForm));
+    dispatch(register(name, email, password, avatar));
   };
 
-  const registerDataChange = (e) => {
-    if (e.target.name === "avatar") {
-      const reader = new FileReader();
+  const handleAvatar = (e) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setAvatarPreview(reader.result);
+        setAvatar(reader.result);
+      }
+    };
 
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          setAvatarPreview(reader.result);
-          setAvatar(reader.result);
-        }
-      };
-
-      reader.readAsDataURL(e.target.files[0]);
-    } else {
-      setUser({ ...user, [e.target.name]: e.target.value });
-    }
+    reader.readAsDataURL(e.target.files[0]);
   };
 
   const redirect = location.search ? location.search.split("=")[1] : "/account";
@@ -152,7 +135,7 @@ const LoginSignUp = ({ history, location }) => {
                     required
                     name="name"
                     value={name}
-                    onChange={registerDataChange}
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </div>
                 <div className="signUpEmail">
@@ -163,7 +146,7 @@ const LoginSignUp = ({ history, location }) => {
                     required
                     name="email"
                     value={email}
-                    onChange={registerDataChange}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="signUpPassword">
@@ -174,7 +157,7 @@ const LoginSignUp = ({ history, location }) => {
                     required
                     name="password"
                     value={password}
-                    onChange={registerDataChange}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
 
@@ -184,7 +167,7 @@ const LoginSignUp = ({ history, location }) => {
                     type="file"
                     name="avatar"
                     accept="image/*"
-                    onChange={registerDataChange}
+                    onChange={handleAvatar}
                   />
                 </div>
                 <input type="submit" value="Register" className="signUpBtn" />

@@ -28,3 +28,22 @@ const ProtectedRoute = ({ isAdmin, component: Component, ...rest }) => {
 };
 
 export default ProtectedRoute;
+// import { useNavigate, Outlet } from "react-router-dom";
+
+// const ProtectedRoute = () => {
+//   const { loading, isAuthenticated } = useSelector((state) => state.user);
+
+//   return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
+// };
+// export default ProtectedRoute;
+
+// export const ProtectedRoute = ({ children }) => {
+//   const { isAuthenticated } = useSelector((state) => state.user);
+
+//   if (isAuthenticated) {
+//     return children;
+//   }
+
+//   return <Navigate to="/login" />;
+// };
+// export default ProtectedRoute;
