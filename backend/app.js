@@ -7,6 +7,8 @@ const fileUpload = require("express-fileupload");
 const ErrorResponse = require("./utils/errorResponse");
 const path = require("path");
 
+require("dotenv").config({ path: "backend/config/config.env" });
+
 // Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "backend/config/config.env" });
