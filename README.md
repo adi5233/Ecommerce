@@ -30,3 +30,8 @@ _fill each filed with your info respectively_
 
 node -v = 14
 
+push 
+1. git add .
+2. git commit -am 'navbar-fix';
+3. git push origin master
+
