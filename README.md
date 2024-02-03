@@ -12,7 +12,7 @@ Make Sure to Create a config.env file in backend/config directory and add approp
 
 **Essential Variables**
 PORT=
-DB_URI =
+DB*URI =
 STRIPE_API_KEY=
 STRIPE_SECRET_KEY=
 JWT_SECRET=
@@ -26,12 +26,12 @@ SMPT_PORT=
 CLOUDINARY_NAME
 CLOUDINARY_API_KEY
 CLOUDINARY_API_SECRET
-_fill each filed with your info respectively_
+\_fill each filed with your info respectively*
 
-node -v = 14
+node -v = 14 || 16
 
-push 
+push
+
 1. git add .
 2. git commit -am 'navbar-fix';
 3. git push origin master
-
