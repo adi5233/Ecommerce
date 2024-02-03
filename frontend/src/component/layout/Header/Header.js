@@ -1,6 +1,9 @@
 import React from "react";
 import { ReactNavbar } from "overlay-navbar";
 import logo from "../../../images/logo.png";
+import SearchIcon from "@material-ui/icons/Search";
+import PersonIcon from "@material-ui/icons/Person";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 const options = {
   burgerColorHover: "#eb4034",
@@ -11,16 +14,12 @@ const options = {
   logoHoverColor: "#eb4034",
   link1Text: "Home",
   link2Text: "Products",
-  // link3Text: "Contact",
-  // link4Text: "About",
-  link3Text: "Search",
-  link4Text: "Login",
+  link3Text: "About Us",
+  link4Text: "Contact Us",
   link1Url: "/",
   link2Url: "/products",
-  // link3Url: "/contact",
-  // link4Url: "/about",
-  link3Url: "/search",
-  link4Url: "/login",
+  link3Url: "/about",
+  link4Url: "/contact",
   link1Size: "1.3vmax",
   link1Color: "rgba(35, 35, 35,0.8)",
   nav1justifyContent: "flex-end",
@@ -29,7 +28,15 @@ const options = {
   nav4justifyContent: "flex-start",
   link1ColorHover: "#eb4034",
   link1Margin: "1vmax",
+  searchIcon: true,
+  profileIcon: true,
+  cartIcon: true,
+  searchIconUrl: "/search",
   profileIconUrl: "/login",
+  cartIconUrl: "/cart",
+  SearchIconElement: SearchIcon,
+  ProfileIconElement: PersonIcon,
+  CartIconElement: ShoppingCartIcon,
   profileIconColor: "rgba(35, 35, 35,0.8)",
   searchIconColor: "rgba(35, 35, 35,0.8)",
   cartIconColor: "rgba(35, 35, 35,0.8)",
